@@ -182,7 +182,7 @@ TextureImporter:
         y: 0
         width: 61
         height: 28
-      alignment: 0
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -203,15 +203,15 @@ TextureImporter:
         y: 0
         width: 61
         height: 28
-      alignment: 0
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71075814ca6539640a895ef141081639
-      internalID: -390040149
+      spriteID: 14e155b2926a07f49a0597a5e749b3d7
+      internalID: -1934887961
       vertices: []
       indices: 
       edges: []
@@ -224,15 +224,15 @@ TextureImporter:
         y: 0
         width: 61
         height: 28
-      alignment: 0
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60f7b80a1cd5dbc49b126e32f8a794bf
-      internalID: -724658499
+      spriteID: c97e9ca7e9f6d2a49a588ba2253cf341
+      internalID: 434782421
       vertices: []
       indices: 
       edges: []
@@ -245,15 +245,15 @@ TextureImporter:
         y: 0
         width: 61
         height: 28
-      alignment: 0
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ed3e6d28f855b441adac7863c6e05bd
-      internalID: 572046512
+      spriteID: 004dcbe3312ced846a02ac7b2b28fb92
+      internalID: 1123881391
       vertices: []
       indices: 
       edges: []
@@ -266,15 +266,15 @@ TextureImporter:
         y: 0
         width: 61
         height: 28
-      alignment: 0
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46d59dda7c7c062479585fef9bb8575e
-      internalID: -1845756775
+      spriteID: 897cb1d0fdc236944b8492dbe186c499
+      internalID: -87268259
       vertices: []
       indices: 
       edges: []
@@ -287,15 +287,15 @@ TextureImporter:
         y: 0
         width: 61
         height: 28
-      alignment: 0
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d4c05fe4b43fd64aa049606346022b3
-      internalID: -1691953430
+      spriteID: bf4a7056cd8ec534e92c9232b235efb3
+      internalID: 1702876014
       vertices: []
       indices: 
       edges: []
@@ -308,15 +308,15 @@ TextureImporter:
         y: 0
         width: 61
         height: 28
-      alignment: 0
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75c8bdcdf532cdc4d94e53f191a8a71a
-      internalID: 306730236
+      spriteID: 14a83c2c0e81e874a947864681cb277c
+      internalID: 1368846255
       vertices: []
       indices: 
       edges: []
@@ -329,15 +329,15 @@ TextureImporter:
         y: 0
         width: 61
         height: 28
-      alignment: 0
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e105fa9b080b5f4428116e71415b3ed4
-      internalID: 1583556424
+      spriteID: 86cdc3de49f1a9b45a35bb93ea25ad77
+      internalID: 1475068635
       vertices: []
       indices: 
       edges: []
@@ -354,13 +354,13 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       blocks_0: 143277659
-      blocks_1: -390040149
-      blocks_2: -724658499
-      blocks_3: 572046512
-      blocks_4: -1845756775
-      blocks_5: -1691953430
-      blocks_6: 306730236
-      blocks_7: 1583556424
+      blocks_1: -1934887961
+      blocks_2: 434782421
+      blocks_3: 1123881391
+      blocks_4: -87268259
+      blocks_5: 1702876014
+      blocks_6: 1368846255
+      blocks_7: 1475068635
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

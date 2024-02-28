@@ -4,10 +4,14 @@ public class PaddleController : MonoBehaviour
 {
     private float paddleHalfWidth;
 
+    private bool isPlaying = false;
+
+    public GameObject ball;
+
     void Start()
     {
-        // Calculate half width of the paddle
         paddleHalfWidth = GetComponent<SpriteRenderer>().bounds.size.x / 2f;
+        ball = GameObject.FindWithTag("Ball");
     }
 
     void Update()
@@ -18,15 +22,29 @@ public class PaddleController : MonoBehaviour
 
             switch (touch.phase)
             {
+                case TouchPhase.Began:
+                    if (!isPlaying)
+                    {
+                        isPlaying = true;
+                        ball.GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-1f, 1f), 1).normalized * ball.GetComponent<BallController>().speed;
+                    }
+                    break;
                 case TouchPhase.Moved:
-                    // Calculate the desired position of the paddle based on touch position
                     float desiredX = Camera.main.ScreenToWorldPoint(touch.position).x;
-                    // Adjust desired position by considering paddle's half width
                     float clampedX = Mathf.Clamp(desiredX, GetScreenLeftBound() + paddleHalfWidth, GetScreenRightBound() - paddleHalfWidth);
-                    // Lerp the current position towards the desired position
                     transform.position = new Vector3(clampedX, transform.position.y, transform.position.z);
                     break;
             }
+        }
+
+        if (isPlaying && ball.transform.position.y < -6)
+        {
+            isPlaying = false;
+            GameController.TakeLife();
+            Destroy(ball);
+            ball = Instantiate(ball);
+            ball.GetComponent<CircleCollider2D>().enabled = true;
+            ball.GetComponent<BallController>().enabled = true;
         }
     }
 

@@ -6,21 +6,23 @@ public class BallController : MonoBehaviour
 
     private Rigidbody2D rb;
 
-    void Start()
+    private GameObject paddle;
+
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        paddle = GameObject.FindWithTag("Paddle");
         InitializeBall();
     }
 
     void Update()
     {
-        
+        rb.velocity = rb.velocity.normalized * speed;
     }
 
     void InitializeBall()
     {
-        Vector2 randomDirection = new Vector2(Random.Range(-1f, 1f), 1).normalized;
-        rb.velocity = randomDirection * speed;
+        transform.position = paddle.transform.position + new Vector3(0, 0.5f, 0);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
