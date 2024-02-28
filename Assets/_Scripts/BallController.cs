@@ -17,6 +17,8 @@ public class BallController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         paddle = GameObject.FindWithTag("Paddle");
         InitializeBall();
+        speed = 5f;
+        collisionCounter = 0;
     }
 
     void Update()
@@ -37,15 +39,15 @@ public class BallController : MonoBehaviour
         collisionCounter++;
         if (collisionCounter > 10)
         {
-            speed = 7.5f;
+            speed = 7f;
         }
-        else if (collisionCounter > 20)
+        if (collisionCounter > 20)
         {
-            speed = 10f;
+            speed = 8.5f;
         }
-        else if (collisionCounter > 30)
+        if (collisionCounter > 30)
         {
-            speed = 12.5f;
+            speed = 9.5f;
         }
 
         if (collision.gameObject.CompareTag("Paddle"))

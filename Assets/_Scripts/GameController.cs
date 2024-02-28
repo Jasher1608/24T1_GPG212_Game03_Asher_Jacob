@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour
     [SerializeField] AudioClip loseLifeSound;
 
     [SerializeField] private TextMeshProUGUI pointsText;
+    [SerializeField] private TextMeshProUGUI livesText;
 
     private void Awake()
     {
@@ -22,9 +23,19 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        playerLives = 3;
-        playerPoints = 0;
+        if (SceneManager.GetActiveScene().name == "Level01")
+        {
+            playerLives = 5;
+            playerPoints = 0;
+        }
+        else
+        {
+            playerLives = PlayerPrefs.GetInt("lives");
+            playerPoints = PlayerPrefs.GetInt("score");
+        }
+
         pointsText.text = playerPoints.ToString();
+        livesText.text = playerLives.ToString();
     }
 
     private void Update()
@@ -37,7 +48,7 @@ public class GameController : MonoBehaviour
         audioSource.pitch = Random.Range(0.85f, 1.15f);
         audioSource.PlayOneShot(pointSound);
         playerPoints += points;
-        pointsText.text = playerPoints.ToString();
+        pointsText.text = "Points: " + playerPoints.ToString();
     }
 
     public void TakeLife()
@@ -45,6 +56,7 @@ public class GameController : MonoBehaviour
         audioSource.pitch = Random.Range(0.85f, 1.15f);
         audioSource.PlayOneShot(loseLifeSound);
         playerLives--;
+        livesText.text = "Lives: " + playerLives.ToString();
     }
 
     private void WinLose()
@@ -52,6 +64,39 @@ public class GameController : MonoBehaviour
         if (playerLives <= 0)
         {
             SceneManager.LoadScene("Level01");
+        }
+
+        PlayerPrefs.SetInt("score", playerPoints);
+        PlayerPrefs.SetInt("lives", playerLives);
+        
+        if ((GameObject.FindGameObjectsWithTag("Brick")).Length == 0)
+        {
+            if (SceneManager.GetActiveScene().name == "Level02")
+            {
+                SceneManager.LoadScene("Level01");
+            }
+
+            string curLevelName = SceneManager.GetActiveScene().name;
+            string nextLevelName;
+            int curLevelNumber;
+
+            int.TryParse(curLevelName.Substring(5, 2), out curLevelNumber);
+
+            curLevelNumber++;
+
+            if (curLevelNumber < 10)
+            {
+                nextLevelName = "Level0" + curLevelNumber.ToString();
+            }
+            else if (curLevelNumber < 100)
+            {
+                nextLevelName = "Level" + curLevelNumber.ToString();
+            }
+            else
+            {
+                nextLevelName = "Level" + curLevelNumber.ToString();
+            }
+            SceneManager.LoadScene(nextLevelName);
         }
     }
 }
