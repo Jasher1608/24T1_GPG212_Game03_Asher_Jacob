@@ -7,6 +7,12 @@ public class PaddleController : MonoBehaviour
     private bool isPlaying = false;
 
     public GameObject ball;
+    private GameController gameController;
+
+    private void Awake()
+    {
+        gameController = GameObject.FindWithTag("GameController").GetComponent<GameController>();
+    }
 
     void Start()
     {
@@ -40,11 +46,12 @@ public class PaddleController : MonoBehaviour
         if (isPlaying && ball.transform.position.y < -6)
         {
             isPlaying = false;
-            GameController.TakeLife();
+            gameController.TakeLife();
             Destroy(ball);
             ball = Instantiate(ball);
             ball.GetComponent<CircleCollider2D>().enabled = true;
             ball.GetComponent<BallController>().enabled = true;
+            ball.GetComponent<AudioSource>().enabled = true;
         }
     }
 

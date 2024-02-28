@@ -3,14 +3,18 @@ using UnityEngine;
 public class BallController : MonoBehaviour
 {
     public float speed;
+    private int collisionCounter = 0;
+    [SerializeField] private AudioClip hitSound;
 
     private Rigidbody2D rb;
+    private AudioSource audioSource;
 
     private GameObject paddle;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
         paddle = GameObject.FindWithTag("Paddle");
         InitializeBall();
     }
@@ -27,6 +31,23 @@ public class BallController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        audioSource.pitch = Random.Range(0.85f, 1.15f);
+        audioSource.PlayOneShot(hitSound);
+
+        collisionCounter++;
+        if (collisionCounter > 10)
+        {
+            speed = 7.5f;
+        }
+        else if (collisionCounter > 20)
+        {
+            speed = 10f;
+        }
+        else if (collisionCounter > 30)
+        {
+            speed = 12.5f;
+        }
+
         if (collision.gameObject.CompareTag("Paddle"))
         {
             float hitPoint = collision.contacts[0].point.x;
