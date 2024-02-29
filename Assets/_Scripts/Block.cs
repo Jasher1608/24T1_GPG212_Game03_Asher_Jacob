@@ -27,7 +27,7 @@ public class Block : MonoBehaviour
         if (collision.gameObject.CompareTag("Ball"))
         {
             numberOfHits++;
-
+            Handheld.Vibrate();
             if (numberOfHits >= hitsToDestroy)
             {
                 gameController.AddPoints(points);
